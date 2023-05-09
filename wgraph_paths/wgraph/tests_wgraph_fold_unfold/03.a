@@ -1,0 +1,6 @@
+Unfolding graph ... ok.
+Graph's edges:
+A -- 1 --> B
+B -- 2 --> C
+C -- 3 --> A
+C -- 4 --> B

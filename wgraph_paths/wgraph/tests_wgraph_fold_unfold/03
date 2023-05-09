@@ -1,0 +1,2 @@
+UNFOLD [ 6 3 A B C [ 6 6 inf 1 inf inf inf inf inf inf 2 inf inf inf 3 4 inf inf inf inf inf inf inf inf inf inf inf inf inf inf inf inf inf inf inf inf inf inf ] ]
+PRINT_EDGES
