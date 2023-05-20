@@ -595,6 +595,7 @@ public:
         std::vector< NodeRef > _nodes;
         FMatrix::Ref _a_mat;
         size_t _size;
+        size_t _capacity;
         size_t _curr_node;
         size_t _curr_edge;
     //

@@ -619,15 +619,12 @@ WGraph<T>::fold(std::ostream& out) const
 {
     //TODO
     //Hint: the Matrix template has a fold method.
-    out<<"[ ";
-    out<<capacity()<<" ";
-    out<<size()<<" ";
+    out<<"["<<" "<<capacity()<<" "<<size()<<" ";
     for(size_t i=0;i<size();i++){
         out<<node(i)->item()<<" ";
     }
-    std::vector<typename WGraph<T>::EdgeRef>edges;
     weight_matrix()->fold(out);
-    out<<" ]";
+    out<<" "<<"]";
     //
     return out;
 }
@@ -639,7 +636,37 @@ WGraph<T>::WGraph (std::istream& input) noexcept(false)
     //Remember: capacity is the max number of nodes that the graph could have.
     //          size is the current number of nodes (size <= capacity).
     //Hint: The Matrix template has a unfold method.
+    // Initialize _curr_node to indicate there is no current node
+       _curr_node = -1;
+       // Get the type of graph
+       std::string token;
 
+       input >> token;
+       if (token != "[")
+           throw std::runtime_error("Wrong input format");
+
+       input >> token;
+       _capacity = std::stoi(token);
+
+
+       // Get the number of nodes
+       input >> token;
+       _size = std::stoi(token);
+
+       // Add the nodes
+
+      for(size_t i = 0; i < _size; i++){
+          T item;
+          input >> item;
+          _nodes.push_back(WNode<T>::create(i, item));
+      }
+
+      _a_mat = FMatrix::create(input);
+
+      input >> token;
+      if (token != "]")
+          throw std::runtime_error("Wrong input format");
+       //
     //
     assert(!has_current_node());
     assert(!has_current_edge());
@@ -666,41 +693,38 @@ typename WGraph<T>::Ref create_wgraph(std::istream &in) noexcept(false)
     //TODO
     //First: Determine if it is directed or undirected.
     std::string type;
-     if (!in) {
-         throw std::runtime_error("Wrong graph");
-     }
-     in >> type;
+    if(!in){
+        return nullptr;
+    }
+    in>>type;
     //
 
     //TODO
     //Second: get the number of nodes and create a wgraph with this capacity.
-     size_t nodes;
-     if (!in) {
-         throw std::runtime_error("Wrong graph");
-     }
-     in >> nodes;
+    size_t nodes;
+    if(!in){
+        return nullptr;
+    }
+    in>>nodes;
     //
 
     //TODO
     //Third: load the N T data items and adding the nodes.
-     graph.reset(new WGraph<T>(nodes));
-     for (size_t i = 0; i < nodes; i++) {
-         T item;
-         if (!in) {
-             throw std::runtime_error("Wrong graph");
-         }
-         in >> item;
-         graph->add_node(item);
-     }
+    graph.reset(new WGraph<T>(nodes));
+    for(size_t i=0;i<nodes;i++){
+        T item;
+        if(!in){
+            return nullptr;
+        }
+        in>>item;
+        graph->add_node(item);
+    }
     //
 
     //TODO
     //Fourth: load the number of edges.
-     size_t edges;
-     if (!in) {
-         throw std::runtime_error("Wrong graph");
-     }
-     in >> edges;
+    size_t edges;
+    in>>edges;
     //
 
     //TODO
@@ -709,14 +733,12 @@ typename WGraph<T>::Ref create_wgraph(std::istream &in) noexcept(false)
     //Remember: if the input graph is UNDIRECTED we simulated this with a WGraph
     //          duplicating each input edge (u,v) making too the (v,u) edge with same weight
     //          with the same weight.
-     for (size_t i = 0; i < edges; i++) {
+     for (size_t i=0; i<edges; i++){
          typename T::key_t u, v;
          float aux;
-         if (!(in >> u >> v >> aux)) {
-             throw std::runtime_error("Wrong graph");
-         }
+         in>>u>>v>>aux;
          graph->set_weight(graph->find_node(u), graph->find_node(v), aux);
-         if (type != "DIRECTED") {
+         if(type!="DIRECTED"){
              graph->set_weight(graph->find_node(v), graph->find_node(u), aux);
          }
      }
