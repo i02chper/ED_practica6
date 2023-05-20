@@ -53,17 +53,31 @@ std::list<size_t> floyd_path(size_t src, size_t dst, IMatrix::Ref I)
     //Hint: Think first. Is it necessary to build a binary tree? or it
     //is enough to do an first-depth search using an iterative approach with
     //a stack of pairs (u,v).
-    size_t u = src;
-    size_t v = dst;
-    if (I->get(u, v) == -1)
-        return path;
+    std::stack<std::pair<size_t, size_t>> stack;
 
-    path.push_back(u);
-    while (u != v)
+    stack.push(std::make_pair(src, dst));
+
+    while (!stack.empty())
     {
-        u = I->get(u, v);
-        path.push_back(u);
+        auto current = stack.top();
+        stack.pop();
+
+        size_t u = current.first;
+        size_t v = current.second;
+        size_t k = I->get(u, v);
+
+        if (k == static_cast<size_t>(-1))
+        {
+            path.push_back(u);
+            path.push_back(v);
+        }
+        else
+        {
+            stack.push(std::make_pair(k, v));
+            stack.push(std::make_pair(u, k));
+        }
     }
+
 
     //
     return path;
