@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "wgraph",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "test_create_graph::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_create_graph-Debug-3f7c39d5b1e9ceed74b7.json",
+					"name" : "test_create_graph",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_wgraph::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_wgraph-Debug-b28ec3de5cc01e3a884a.json",
+					"name" : "test_wgraph",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "wgraph::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-wgraph-Debug-e06f840ddde47406ef1f.json",
+					"name" : "wgraph",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/rachape99/Escritorio/ED_practica6/wgraph_paths_1.0/wgraph_paths/build-wgraph-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+		"source" : "/home/rachape99/Escritorio/ED_practica6/wgraph_paths_1.0/wgraph_paths/wgraph"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

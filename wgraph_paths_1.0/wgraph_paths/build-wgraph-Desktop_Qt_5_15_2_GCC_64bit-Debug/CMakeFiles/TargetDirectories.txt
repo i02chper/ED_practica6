@@ -1,0 +1,5 @@
+/home/rachape99/Escritorio/ED_practica6/wgraph_paths_1.0/wgraph_paths/build-wgraph-Desktop_Qt_5_15_2_GCC_64bit-Debug/CMakeFiles/wgraph.dir
+/home/rachape99/Escritorio/ED_practica6/wgraph_paths_1.0/wgraph_paths/build-wgraph-Desktop_Qt_5_15_2_GCC_64bit-Debug/CMakeFiles/test_wgraph.dir
+/home/rachape99/Escritorio/ED_practica6/wgraph_paths_1.0/wgraph_paths/build-wgraph-Desktop_Qt_5_15_2_GCC_64bit-Debug/CMakeFiles/test_create_graph.dir
+/home/rachape99/Escritorio/ED_practica6/wgraph_paths_1.0/wgraph_paths/build-wgraph-Desktop_Qt_5_15_2_GCC_64bit-Debug/CMakeFiles/edit_cache.dir
+/home/rachape99/Escritorio/ED_practica6/wgraph_paths_1.0/wgraph_paths/build-wgraph-Desktop_Qt_5_15_2_GCC_64bit-Debug/CMakeFiles/rebuild_cache.dir
