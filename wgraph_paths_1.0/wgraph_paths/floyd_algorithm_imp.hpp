@@ -69,7 +69,7 @@ std::list<size_t> floyd_path(size_t src, size_t dst, IMatrix::Ref I)
         if (k == static_cast<size_t>(-1))
         {
             path.push_back(u);
-            path.push_back(v);
+
         }
         else
         {
@@ -77,6 +77,7 @@ std::list<size_t> floyd_path(size_t src, size_t dst, IMatrix::Ref I)
             stack.push(std::make_pair(u, k));
         }
     }
+    path.push_back(dst);
 
 
     //
